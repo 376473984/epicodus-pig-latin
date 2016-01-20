@@ -1,4 +1,10 @@
 
+var separateWords = function(userText) {
+  //split into an array of strings separated by spaces
+  var wordArray = userText.split(' ');
+  return wordArray;
+}
+
 
 var translator = function(userText) {
   var newString;
@@ -16,7 +22,7 @@ var translator = function(userText) {
       }
       newString = userText.slice(index) + beginningConsonants;
     }
-    
+
   } else {
     // if the first letter is a vowel
     newString = userText;

@@ -23,3 +23,9 @@ describe('translator', function () {
     expect(translator('squeal')).to.equal('ealsquay');
   })
 });
+
+describe('separateWords', function() {
+  it('will turn a sentence into an array with each word being a separate string', function() {
+    expect(separateWords('hello my name is tea')).to.eql(['hello', 'my', 'name', 'is', 'tea'])
+  });
+});
