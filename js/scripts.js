@@ -32,9 +32,19 @@ var sentenceTranslator = function(userText) {
 
   var wordArray = userText.split(' ');
   var translatedArray = [];
-  
+
   wordArray.forEach(function(word) {
   translatedArray.push(translator(word));
 });
-  return translatedArray;
+  return translatedArray.toString().replace(/,/g, " ");
 };
+
+$(document).ready(function() {
+  $("form#input").submit(function(event) {
+    var userText = $('textarea#userText').val();
+
+    $('#result').text(sentenceTranslator(userText));
+
+    event.preventDefault();
+  });
+});
