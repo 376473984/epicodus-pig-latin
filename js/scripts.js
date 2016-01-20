@@ -5,7 +5,6 @@ var translator = function(userText) {
 // for words that do not start with a vowel
   if (!userText.match(/^[aeiou]/i)) {
     for (var index = 0; !userText[index].match(/[aeiou]/i); index ++) {
-      // !userText[index].match(/[aeiou]/i)
       var beginningConsonants = userText.slice(0, index+1);
     }
     newString = userText.slice(index) + beginningConsonants;
