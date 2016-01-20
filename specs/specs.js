@@ -24,8 +24,8 @@ describe('translator', function () {
   })
 });
 
-describe('separateWords', function() {
-  it('will turn a sentence into an array with each word being a separate string', function() {
-    expect(separateWords('hello my name is tea')).to.eql(['hello', 'my', 'name', 'is', 'tea'])
+describe('sentenceTranslator', function() {
+  it('will turn a sentence into a pig latin sentence', function() {
+    expect(sentenceTranslator('hello my name is tea')).to.eql(['ellohay', 'ymay', 'amenay', 'isay', 'eatay'])
   });
 });

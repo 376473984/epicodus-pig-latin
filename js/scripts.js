@@ -1,33 +1,40 @@
 
-var separateWords = function(userText) {
-  //split into an array of strings separated by spaces
-  var wordArray = userText.split(' ');
-  return wordArray;
-}
-
-
-var translator = function(userText) {
+//turn a word into a piglatin word
+var translator = function(word) {
   var newString;
-// for words that do not start with a vowel
-  if (!userText.match(/^[aeiou]/i)) {
-    //check for qu and have separate loop excluding u
-    if (userText.match(/qu/i)) {
-      for (var index = 0; !userText[index].match(/[aeio]/i); index ++) {
-        var beginningConsonants = userText.slice(0, index+1);
-      }
-      newString = userText.slice(index) + beginningConsonants;
-    } else {
-      for (var index = 0; !userText[index].match(/[aeiou]/i); index ++) {
-        var beginningConsonants = userText.slice(0, index+1);
-      }
-      newString = userText.slice(index) + beginningConsonants;
-    }
 
+  if (word.match(/^(y)/i)) {
+    var beginningConsonants = word.slice(0, 1);
+    newString = word.slice(1) + beginningConsonants;
+
+  } else if (!word.match(/^[aeiou]/i) && word.match(/[aeiouy]/i)) {
+    //check for qu and have separate loop excluding u
+    if (word.match(/qu/i)) {
+      for (var index = 0; !word[index].match(/[aeioy]/i); index ++) {
+        var beginningConsonants = word.slice(0, index+1);
+      }
+      newString = word.slice(index) + beginningConsonants;
+    } else {
+      for (var index = 0; !word[index].match(/[aeiouy]/i); index ++) {
+        var beginningConsonants = word.slice(0, index+1);
+      }
+      newString = word.slice(index) + beginningConsonants;
+    }
   } else {
     // if the first letter is a vowel
-    newString = userText;
+    newString = word;
   }
-
-  // for all word add "ay" to end
   return newString += "ay";
-}
+};
+
+//return the end result
+var sentenceTranslator = function(userText) {
+
+  var wordArray = userText.split(' ');
+  var translatedArray = [];
+  
+  wordArray.forEach(function(word) {
+  translatedArray.push(translator(word));
+});
+  return translatedArray;
+};
