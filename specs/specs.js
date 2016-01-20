@@ -7,11 +7,11 @@
 
 describe('translator', function () {
   it('adds "ay" to the end of words', function() {
-    //expect(translator('elephant')).to.equal('elephantay');
-    expect(translator('action')).to.equal('actionay');
+    expect(translator('elephant')).to.equal('elephantay');
+    //expect(translator('action')).to.equal('actionay');
   });
 
   it('for words have one consonant before a vowel, it will move that consonant to the end of the word but before "ay"', function () {
-    expect(translator('toffee')).to.equal('offeetay');
+    expect(translator('cacoa')).to.equal('acoacay');
   });
 });
