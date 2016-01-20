@@ -26,6 +26,6 @@ describe('translator', function () {
 
 describe('sentenceTranslator', function() {
   it('will turn a sentence into a pig latin sentence', function() {
-    expect(sentenceTranslator('hello my name is tea')).to.eql(['ellohay', 'ymay', 'amenay', 'isay', 'eatay'])
+    expect(sentenceTranslator('hello my name is tea')).to.equal('ellohay ymay amenay isay eatay')
   });
 });
