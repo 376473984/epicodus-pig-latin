@@ -14,4 +14,8 @@ describe('translator', function () {
   it('for words have one consonant before a vowel, it will move that consonant to the end of the word but before "ay"', function () {
     expect(translator('cacoa')).to.equal('acoacay');
   });
+
+  it('for words beginning with multiple consonants, it will move them all to the end of the word but before ay', function() {
+    expect(translator('brownie')).to.equal('owniebray');
+  })
 });
