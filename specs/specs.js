@@ -18,4 +18,8 @@ describe('translator', function () {
   it('for words beginning with multiple consonants, it will move them all to the end of the word but before ay', function() {
     expect(translator('brownie')).to.equal('owniebray');
   })
+
+  it('treats "u" as a consonant if it follows a "q"', function() {
+    expect(translator('squeal')).to.equal('ealsquay');
+  })
 });
